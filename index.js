@@ -52,8 +52,8 @@ client.on("message", async msg => {
   if (command == "ping") {
     // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
 		// The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
-		const m = await message.channel.send("Calculating Ping...");
-		m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms.\nAPI Latency is ${Math.round(client.ws.ping)}ms`);
+		const m = await msg.channel.send("Calculating Ping...");
+		m.edit(`Pong! Latency is ${m.createdTimestamp - msg.createdTimestamp}ms.\nAPI Latency is ${Math.round(client.ws.ping)}ms`);
     /* When someone types !ping, or whatever your prefix is, the expected output would be:
         Calculating Ping...
       It will edit this message and send this:
