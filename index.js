@@ -73,3 +73,5 @@ client.on("message", async msg => {
   
   // Now all commands go after this...
 });
+
+// Feel free to remove all the comments in this file once you understand how to code in discord.js adequately
