@@ -1,0 +1,4 @@
+{ 
+  "token"  : "Your Bot Token Goes Here (Never Give Your Bot Token Out To Anyone)",
+  "prefix" : "Choose a prefix, for example (!)",
+}
