@@ -64,7 +64,7 @@ client.on("message", async msg => {
 });
 
 // Non-Async/Await commands
-client.on{"message", async msg => {
+client.on("message", async msg => {
   if (!msg.content.startsWith(prefix) || msg.author.bot) return;
 
 	const args = msg.content.slice(prefix.length).trim().split(/ +/);
