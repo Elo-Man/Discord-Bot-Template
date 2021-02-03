@@ -20,7 +20,7 @@ client.once('ready', () => {
 	console.log(`${client.user.tag} has started, with ${client.users.cache.size} users, in ${client.channels.cache.size} channels of ${client.guilds.cache.size} guilds.`); 
 	// Example of changing the bot's activity status
 	// Here you can set a status. Example: client.user.setActivity("with Visual Studio Code", { type: "PLAYING" })
-	client.user.setActivity("with megumin | ^help", { type: "PLAYING" });
+	client.user.setActivity("with Visual Studio Code", { type: "PLAYING" });
 });
 // We set our prefix and token via the config file, which we keep safe
 const { prefix, token, } = require('./config.json');
