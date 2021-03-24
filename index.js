@@ -1,26 +1,26 @@
-/* 	This is the start of the most important code: index.js
-	All code is written in javascript
+/* 	This is the start of the vital file: index.js
+	All code here is written in javascript
 	We will use the huge library of discord.js to access discord's language
 	To install discord.js or anything.js via node.js terminal:
-	Make sure you have installed the npm command in your terminal
-	Then simply run this command: npm i extensionname.js
-	Where extensionname is the name of the extention, for example discord
-	We have more extentions too for other specialised commands 
+	1. Make sure you have installed the npm command in your terminal
+	2. Then simply run this command: npm i packagename.js
+	Where packagename is the name of the package, for example discord
+	Useful packages include moment.js, ms, common-tags, etc
 */
-const Discord = require('discord.js'),
+const Discord = require('discord.js');
 // Let's start up the code!! First define the client:
-	client = new Discord.Client(),
+const client = new Discord.Client();
 // First, this must be at the top level of your code, **NOT** in any event!
 // This can create cooldowns for commands! (Set<any>)
-	talkedRecently = new Set(),
+const talkedRecently = new Set();
 // This is how we can store blocked users (Array)
-	blockedUsers = []
+const blockedUsers = [];
 // Let's get the bot online once it's ready!
 client.once('ready', () => {
 	console.log(`${client.user.tag} has started, with ${client.users.cache.size} users, in ${client.channels.cache.size} channels of ${client.guilds.cache.size} guilds.`); 
 	// Example of changing the bot's activity status
-	// Here you can set a status. Example: client.user.setActivity("with Visual Studio Code", { type: "PLAYING" })
-	client.user.setActivity("with Visual Studio Code", { type: "PLAYING" });
+	// Here you can set a status. Here the bot iw playing a game called "with code".
+	client.user.setActivity("with Code", { type: "PLAYING" });
 });
 // We set our prefix and token via the config file, which we keep safe
 const { prefix, token, } = require('./config.json');
@@ -61,17 +61,15 @@ client.on("message", async msg => {
         API Latency is ___ms
     */
   }
+  // Now commands go after this...
 });
 
 // Non-Async/Await commands
-client.on("message", async msg => {
+client.on("message", msg => {
   if (!msg.content.startsWith(prefix) || msg.author.bot) return;
-
 	const args = msg.content.slice(prefix.length).trim().split(/ +/);
 	const command = args.shift().toLowerCase();
 	if (blockedUsers.includes(msg.author.id)) return console.log(`${msg.author.username} just tried to use my commands but was stopped because they were blacklisted`)
   
-  // Now all commands go after this...
+  // Now commands go after this...
 });
-
-// Feel free to remove all the comments in this file once you understand how to code in discord.js adequately
